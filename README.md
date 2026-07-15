@@ -88,32 +88,6 @@ Ces deux RPC peuvent etre testees manuellement depuis ThingsBoard : device
 ESP32 -> onglet "Details" > bouton RPC, ou depuis un widget "Switch" du
 dashboard (voir section Dashboard).
 
-### Dashboard
-
-Un gabarit est fourni dans
-[thingsboard/dashboard_cuveguard.json](thingsboard/dashboard_cuveguard.json),
-construit et valide a partir d'un export reel de ce compte ThingsBoard
-(`eu.thingsboard.cloud`, v4.3.1). Niveau de confiance par widget :
-
-- **5 cartes** (niveau, etat pompe, alertLevel, decision agent, niveau
-  observe) : schema confirme (`system.cards.value_card`), fonctionnent des
-  l'import.
-- **2 graphiques temporels** (`system.charts.time_series_chart` :
-  temperature/humidite et niveau/distance) : tres probablement corrects, a
-  verifier visuellement apres import.
-- **2 switchs RPC** (`system.control-widgets.switch_control` pour `setPump`
-  et `setManualMode`) : la partie la moins fiable — le mapping get/set RPC
-  varie selon les versions. S'ils ne fonctionnent pas apres import, recree-les
-  a la main (Edit mode > Add widget > cherche "switch control" > Target
-  device = ESP32 CuveGuard > Get value = telemetry `pumpOn` / `manualMode` >
-  Set value = RPC `setPump` / `setManualMode`), c'est rapide.
-
-Dans tous les cas, une fois le dashboard complet et fonctionnel, **exporte-le
-a nouveau** (menu du dashboard > Export dashboard) et remplace
-`thingsboard/dashboard_cuveguard.json` par ce nouvel export avant de zipper —
-c'est cette version finale, verifiee en conditions reelles, qui doit partir
-dans le rendu.
-
 ## 4. Agent Python
 
 ```bash
@@ -147,17 +121,6 @@ publie sa propre telemetrie (`agentDecision`, `observedLevelPct`,
 Seul `python/config.example.yaml` (valeurs bidons) part dans le zip -
 `config.yaml` reste local.
 
-## 5. Video de demonstration
-
-`video/demo.mp4` (ou `.webm`, 15 min max) doit montrer :
-
-1. la simulation Wokwi qui tourne (moniteur serie visible) ;
-2. ThingsBoard recevant la telemetrie en direct (graphes qui bougent) ;
-3. au moins deux scenarios : niveau qui descend sous 30% -> pompe qui demarre
-   en auto (slider HC-SR04), niveau qui remonte au-dessus de 90% -> pompe qui
-   s'arrete, et/ou bascule manuelle via le switch du dashboard ;
-4. l'agent Python lance dans un terminal, avec ses logs et les valeurs
-   correspondantes visibles sur le dashboard.
 
 ## 6. Avant de zipper
 

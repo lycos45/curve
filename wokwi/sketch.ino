@@ -20,7 +20,7 @@ const int   TB_PORT   = 1883;
 // Token du device "ESP32 CuveGuard" cree dans ThingsBoard.
 // NE JAMAIS committer le vrai token : remplace via un define local
 // ou un fichier non versionne. Ici on met un placeholder volontairement.
-const char* TB_TOKEN  = "exib7nTNimuHVnSlI2Q0";
+const char* TB_TOKEN  = "esp_32_token";
 
 // ---------- Broches ----------
 #define TRIG_PIN     5

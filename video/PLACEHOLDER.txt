@@ -1,3 +1,0 @@
-Place ici demo.mp4 (ou demo.webm), 15 minutes max, avant de creer le zip final.
-Supprime ce fichier PLACEHOLDER.txt une fois la vraie video ajoutee.
-Voir README.md section "5. Video de demonstration" pour le contenu attendu.

@@ -1,9 +1,9 @@
 thingsboard:
   host: "eu.thingsboard.cloud"
-  username: "ousmanecoly543@gmail.com"
-  password: "@Mamansy45"
-  esp32_device_id: "4f2ab590-7d2f-11f1-a6bc-271c9fe4b5ff"
-  agent_device_token: "d35jofw93loj17tslzbe"
+  username: "user@gmail.com"
+  password: "password"
+  esp32_device_id: "device_id"
+  agent_device_token: "device_token"
 
 control:
   low_threshold_pct: 30

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "GROUPE4",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp32",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "hcsr04",
+      "top": -60,
+      "left": 320,
+      "attrs": { "distance": "100" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht22",
+      "top": 60,
+      "left": 320,
+      "attrs": { "temperature": "24", "humidity": "50" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 180,
+      "left": 320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_alert",
+      "top": 320,
+      "left": 20,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_alert",
+      "top": 340,
+      "left": -40,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": 320,
+      "left": 140,
+      "attrs": { "volume": "0.2" }
+    }
+  ],
+  "connections": [
+    ["hcsr04:VCC", "esp32:5V", "red", []],
+    ["hcsr04:GND", "esp32:GND.1", "black", []],
+    ["esp32:D5", "hcsr04:TRIG", "green", []],
+    ["esp32:D18", "hcsr04:ECHO", "yellow", []],
+
+    ["dht22:VCC", "esp32:3V3", "red", []],
+    ["dht22:GND", "esp32:GND.2", "black", []],
+    ["esp32:D4", "dht22:SDA", "blue", []],
+
+    ["relay1:VCC", "esp32:5V", "red", []],
+    ["relay1:GND", "esp32:GND.1", "black", []],
+    ["esp32:D26", "relay1:IN", "orange", []],
+
+    ["esp32:D25", "r_alert:1", "orange", []],
+    ["r_alert:2", "led_alert:A", "orange", []],
+    ["led_alert:C", "esp32:GND.2", "black", []],
+
+    ["esp32:D33", "buzzer1:1", "purple", []],
+    ["buzzer1:2", "esp32:GND.1", "black", []]
+  ]
+}

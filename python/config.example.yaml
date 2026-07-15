@@ -1,0 +1,23 @@
+# Copie ce fichier en "config.yaml" (non versionne / non inclus dans le zip final)
+# et remplace les valeurs ci-dessous par les tiennes.
+# Ne jamais mettre de vrais tokens/mots de passe dans config.example.yaml.
+
+thingsboard:
+  host: "eu.thingsboard.cloud"
+
+  # Compte ThingsBoard (ou compte dedie) utilise par l'agent pour lire
+  # la telemetrie de l'ESP32 et envoyer des RPC via l'API REST.
+  username: "your_tb_account_email@example.com"
+  password: "REPLACE_WITH_YOUR_PASSWORD"
+
+  # Id du device "ESP32 CuveGuard" (visible dans ThingsBoard > Devices > ... > Details)
+  esp32_device_id: "00000000-0000-0000-0000-000000000000"
+
+  # Token d'acces du device "Python Agent" (utilise pour publier sa propre telemetrie en MQTT)
+  agent_device_token: "REPLACE_WITH_AGENT_DEVICE_ACCESS_TOKEN"
+
+control:
+  low_threshold_pct: 30      # niveau < 30% -> demarrage pompe (mode auto)
+  high_threshold_pct: 90     # niveau > 90% -> arret pompe (mode auto)
+  poll_interval_sec: 5       # frequence de lecture / decision
+  min_command_interval_sec: 15  # anti rafale : delai mini entre deux changements de commande

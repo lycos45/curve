@@ -1,0 +1,12 @@
+thingsboard:
+  host: "eu.thingsboard.cloud"
+  username: "ousmanecoly543@gmail.com"
+  password: "@Mamansy45"
+  esp32_device_id: "4f2ab590-7d2f-11f1-a6bc-271c9fe4b5ff"
+  agent_device_token: "d35jofw93loj17tslzbe"
+
+control:
+  low_threshold_pct: 30
+  high_threshold_pct: 90
+  poll_interval_sec: 5
+  min_command_interval_sec: 15
